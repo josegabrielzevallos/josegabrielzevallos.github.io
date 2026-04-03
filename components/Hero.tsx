@@ -1,9 +1,12 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/app/LanguageContext'
+import ResumeModal from '@/components/ResumeModal'
 
 export default function Hero() {
   const { t } = useLanguage()
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false)
   
   return (
     <section id="about" className="min-h-screen flex items-center justify-center pt-20 px-4">
@@ -24,7 +27,15 @@ export default function Hero() {
           <a href="https://github.com/josegabrielzevallos" target="_blank" rel="noopener noreferrer" className="btn-secondary">
             {t('hero.viewGithub')}
           </a>
+          <button 
+            onClick={() => setIsResumeModalOpen(true)}
+            className="btn-secondary"
+          >
+            {t('hero.downloadResume')}
+          </button>
         </div>
+
+        <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />
 
         <div className="mt-16 grid grid-cols-3 gap-8">
           <div>

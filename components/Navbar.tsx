@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react'
 import { useLanguage } from '@/app/LanguageContext'
+import ResumeModal from '@/components/ResumeModal'
 
 export default function Navbar() {
   const [isScrolling, setIsScrolling] = useState(false)
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
 
   useEffect(() => {
@@ -26,6 +28,7 @@ export default function Navbar() {
   ]
 
   return (
+    <>
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolling ? 'bg-secondary/95 backdrop-blur shadow-lg' : 'bg-transparent'}`}>
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold text-accent">
@@ -33,10 +36,20 @@ export default function Navbar() {
         </a>
         <div className="hidden md:flex gap-8 items-center">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="text-gray-300 hover:text-accent transition-colors">
+            <a 
+              key={link.href} 
+              href={link.href} 
+              className="text-gray-300 hover:text-accent transition-colors"
+            >
               {link.label}
             </a>
           ))}
+          <button
+            onClick={() => setIsResumeModalOpen(true)}
+            className="px-3 py-1 bg-accent/20 text-accent rounded-lg hover:bg-accent hover:text-white transition-colors text-sm"
+          >
+            {t('hero.downloadResume')}
+          </button>
         </div>
         <div className="flex gap-4 items-center">
           <div className="flex gap-2 bg-secondary/50 rounded-lg p-1">
@@ -59,5 +72,7 @@ export default function Navbar() {
         </div>
       </div>
     </nav>
+    <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />
+    </>
   )
 }
