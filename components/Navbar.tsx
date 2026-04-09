@@ -8,6 +8,7 @@ import ResumeModal from '@/components/ResumeModal'
 export default function Navbar() {
   const [isScrolling, setIsScrolling] = useState(false)
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
   const { language, setLanguage, t } = useLanguage()
   const { theme, toggleTheme } = useTheme()
 
@@ -31,9 +32,9 @@ export default function Navbar() {
 
   return (
     <>
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolling ? 'bg-secondary/95 backdrop-blur shadow-lg' : 'bg-transparent'}`}>
+    <nav role="navigation" aria-label="Main navigation" className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolling ? 'bg-secondary/95 backdrop-blur shadow-lg' : 'bg-transparent'}`}>
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-4 flex justify-between items-center">
-        <a href="#" className="text-2xl font-bold text-accent">
+        <a href="#" className="text-2xl font-bold text-accent" aria-label="Go to top">
           JGZ
         </a>
         <div className="hidden md:flex gap-8 items-center">
@@ -83,6 +84,40 @@ export default function Navbar() {
               ES
             </button>
           </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            className="md:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileOpen}
+          >
+            <span className={`w-6 h-0.5 bg-heading transition-all duration-300 ${isMobileOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-6 h-0.5 bg-heading transition-all duration-300 ${isMobileOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-6 h-0.5 bg-heading transition-all duration-300 ${isMobileOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className={`md:hidden transition-all duration-300 overflow-hidden ${isMobileOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="bg-secondary/95 backdrop-blur border-t border-accent/20 px-4 py-4 space-y-3">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMobileOpen(false)}
+              className="block text-body hover:text-accent transition-colors py-2"
+            >
+              {link.label}
+            </a>
+          ))}
+          <button
+            onClick={() => { setIsResumeModalOpen(true); setIsMobileOpen(false) }}
+            className="block w-full text-left text-accent hover:text-blue-300 transition-colors py-2 font-semibold"
+          >
+            {t('hero.downloadResume')}
+          </button>
         </div>
       </div>
     </nav>

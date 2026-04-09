@@ -12,8 +12,8 @@ export default function Projects() {
 
   const projects = [
     {
-      title: 'Medical Appointment Platform',
-      description: 'Full-stack appointment management system enabling efficient scheduling between patients and doctors. Real-time notifications and integrated calendar system.',
+      title: 'MedicFamily - Medical Appointment Platform',
+      description: 'Full-stack platform that solves the inefficiency of traditional medical scheduling by enabling patients to search for specialists, book appointments, and manage their healthcare needs online. Features include real-time availability, Google Maps integration, role-based dashboards for doctors and patients, and secure authentication.',
       tech: ['React', 'Django', 'PostgreSQL', 'Google Cloud', 'Docker'],
       link: 'https://github.com/josegabrielzevallos/medicfamily',
       status: t('proj.inDevelopment'),
@@ -22,27 +22,27 @@ export default function Projects() {
       images: medicFamilyImages,
     },
     {
-      title: 'ERP Logistics System',
-      description: 'Enterprise resource planning system for logistics and inventory management. Features real-time tracking, automated workflows, and comprehensive reporting.',
-      tech: ['GeneXus', 'SQL', 'API Design'],
+      title: 'ERP Logistics & Purchasing System',
+      description: 'Redesigned enterprise logistics workflows at Incalpaca TPX to improve purchase authorization, inventory traceability, and audit control. Automated approval chains and integrated with existing accounting processes, reducing manual errors and improving operational efficiency across the supply chain.',
+      tech: ['GeneXus', 'SQL Server', 'API Design', 'ERP'],
       link: 'https://github.com/josegabrielzevallos',
       status: t('proj.deployed'),
       gradient: 'from-orange-600 to-red-500',
       icon: '📦',
     },
     {
-      title: 'Community Management Platform',
-      description: 'Internal platform for communication, complaint management, and workflow automation. Streamlines processes and improves team collaboration.',
-      tech: ['Django', 'React', 'PostgreSQL'],
+      title: 'Enterprise Surveillance & Access Control',
+      description: 'Built a comprehensive security system for visitor tracking, vehicle authorization, and personnel monitoring with automated reporting. Integrated with existing infrastructure to provide real-time alerts and dashboard analytics for security operations management.',
+      tech: ['Django', 'React', 'PostgreSQL', 'REST APIs'],
       link: 'https://github.com/josegabrielzevallos',
       status: t('proj.deployed'),
       gradient: 'from-purple-600 to-pink-500',
-      icon: '👥',
+      icon: '🔒',
     },
     {
-      title: 'Production Monitoring System',
-      description: 'Real-time monitoring of production efficiency, quality control, and shop-floor operations. Dashboard with analytics and automated alerts.',
-      tech: ['Django', 'SQL Server'],
+      title: 'Production Monitoring & Quality Control',
+      description: 'Real-time monitoring system for production efficiency, quality control, and shop-floor operations at a textile manufacturing company. Features automated alerts, KPI dashboards, and data-driven decision support to enable continuous optimization through operational data analysis.',
+      tech: ['Django', 'SQL Server', 'Dashboard', 'Analytics'],
       link: 'https://github.com/josegabrielzevallos',
       status: t('proj.deployed'),
       gradient: 'from-green-600 to-emerald-500',
@@ -51,7 +51,7 @@ export default function Projects() {
   ]
 
   return (
-    <section id="projects" className="section bg-secondary/30">
+    <section id="projects" aria-label="Featured Projects" className="section bg-secondary/30">
       <div className="max-w-6xl mx-auto">
         <h2 className="section-title">{t('section.projects')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

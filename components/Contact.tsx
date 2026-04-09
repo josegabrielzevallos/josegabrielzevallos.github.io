@@ -27,12 +27,12 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="section bg-secondary/30">
+    <section id="contact" aria-label="Contact" className="section bg-secondary/30">
       <div className="max-w-2xl mx-auto">
         <h2 className="section-title">{t('section.contact')}</h2>
 
         <div className="mb-12 flex flex-wrap gap-8 justify-center">
-          <a href="email:jose.zevallos.delgadolaflor@gmail.com" className="flex items-center gap-3 text-body hover:text-accent transition-colors">
+          <a href="mailto:jose.zevallos.delgadolaflor@gmail.com" aria-label="Send email" className="flex items-center gap-3 text-body hover:text-accent transition-colors">
             <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center">
               ✉️
             </div>

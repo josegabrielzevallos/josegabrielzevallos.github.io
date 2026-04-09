@@ -14,7 +14,7 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="section">
+    <section id="skills" aria-label="Technical Skills" className="section">
       <div className="max-w-4xl mx-auto">
         <h2 className="section-title">{t('section.skills')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

@@ -9,7 +9,7 @@ export default function Hero() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false)
   
   return (
-    <section id="about" className="min-h-screen flex items-center justify-center pt-20 px-4">
+    <section id="about" aria-label="About Me" className="min-h-screen flex items-center justify-center pt-20 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Top section: Info + Photo side by side */}
         <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12 mb-12">
@@ -49,6 +49,12 @@ export default function Hero() {
           <a href="https://www.linkedin.com/in/jose-gabriel-zevallos-delgado-de-la-flor-a82307250" target="_blank" rel="noopener noreferrer" className="btn-secondary">
             LinkedIn
           </a>
+          <button
+            onClick={() => setIsResumeModalOpen(true)}
+            className="btn-secondary"
+          >
+            {t('hero.downloadResume')}
+          </button>
         </div>
 
         <ResumeModal isOpen={isResumeModalOpen} onClose={() => setIsResumeModalOpen(false)} />

@@ -43,7 +43,7 @@ export default function Education() {
   ]
 
   return (
-    <section id="education" className="section">
+    <section id="education" aria-label="Education" className="section">
       <div className="max-w-4xl mx-auto">
         <h2 className="section-title">{t('section.education')}</h2>
 

@@ -32,12 +32,19 @@ export default function Experience() {
       company: t('exp.incalpaca'),
       period: t('exp.period4'),
       description: t('exp.desc4'),
-      highlights: ['ERP', 'Django', 'System Design'],
+      highlights: ['ERP', 'Django', 'System Design', 'SQL Server'],
+    },
+    {
+      title: t('exp.instructor'),
+      company: t('exp.crackthecode'),
+      period: t('exp.period5'),
+      description: t('exp.desc5'),
+      highlights: ['Teaching', 'Game Development', 'Problem Solving'],
     },
   ]
 
   return (
-    <section id="experience" className="section bg-secondary/30">
+    <section id="experience" aria-label="Work Experience" className="section bg-secondary/30">
       <div className="max-w-4xl mx-auto">
         <h2 className="section-title">{t('section.experience')}</h2>
         <div className="space-y-8">
